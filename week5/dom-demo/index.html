@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 4rem 0 1.4rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .radio-container {
+            margin-bottom: 2rem;
+        }
+
+        input[type="radio"]:not(:first-child) {
+            margin: 0 .5rem 0 2rem;
+        }
+
+        input[type="radio"]:first-child {
+            margin-right: .5rem;
+        }
+
+        input[type='radio']:checked:after {
+            width: 13px;
+            height: 13px;
+            border-radius: 13px;
+            background-color: slateblue;
+            content: '';
+            display: inline-block;
+        }
+
+        button {
+            background-color: #6a5acd;
+            color: whitesmoke;
+            border: none;
+            outline: inherit;
+            border-radius: 5px;
+            padding: .6rem 2.5rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4837b5;
+        }
+
+        button:active {
+            background-color: #7265c2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please rate: </h1>
+    <div class="radio-container">
+        <input type="radio" name="rate" value="Very poor">Very poor
+        <input type="radio" name="rate" value="Poor">Poor
+        <input type="radio" name="rate" value="OK">OK
+        <input type="radio" name="rate" value="Good">Good
+        <input type="radio" name="rate" value="Very good">Very good
+    </div>
+    <button id="btn-rate">Submit</button>
+
+    <script>
+        const btn = document.getElementById("btn-rate")
+
+        btn.addEventListener("click", () => {
+            const rates = document.getElementsByName("rate")
+
+            for (const rate of rates) {
+                if (rate.checked) {
+                    alert("You rated: " + rate.value)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

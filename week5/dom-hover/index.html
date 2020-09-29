@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+        }
+        div {
+            background-color: slateblue;
+            margin: 2rem;
+            text-align: center;
+            padding: 1rem 2rem;
+            color: whitesmoke;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)">Hover me!</div>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)">Press me!</div>
+
+    <script>
+        function mOver(element) {
+            element.style.backgroundColor = "salmon"
+            element.innerHTML = "Thank you"
+        }
+
+        function mOut(element) {
+            element.style.backgroundColor = "slateblue"
+            element.innerHTML = "Hover me!"
+        }
+
+        function mDown(element) {
+            element.innerHTML = "Release me!"
+            element.style.backgroundColor = "salmon"
+        }
+
+        function mUp(element) {
+            element.innerHTML = "Thank you"
+            element.style.backgroundColor = "slateblue"
+        }
+    </script>
+</body>
+</html>

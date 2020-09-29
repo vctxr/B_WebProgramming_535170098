@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        body {
+            font-family: "Helvetica";
+        }
+    </style>
+</head>
+<body>
+    <h2>Write a new task</h2>
+    <input type="text" id="task" value="" required>
+    <input type="button" id="add" value="Add" onclick="add()">
+    <input type="button" id="remove" value="Remove" onclick="remove()">
+    <ul id="todo-list"></ul>
+
+    <script>
+        function add() {
+            const input = document.getElementById("task")
+            if (input.value === "") { return }
+            const ul = document.getElementById("todo-list")
+            const li = document.createElement("li")
+            const text = document.createTextNode(input.value)
+
+            li.appendChild(text)
+            ul.appendChild(li)
+
+            input.value = ""
+        }
+
+        function remove() {
+            const ul = document.getElementById("todo-list")
+            const li = document.getElementsByTagName("li")
+
+            if (li.length > 0) {
+                ul.removeChild(li[li.length - 1])
+            } else {
+                alert('Task is empty!')
+            }
+        }
+    </script>
+</body>
+</html>
